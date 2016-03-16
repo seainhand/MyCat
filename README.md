@@ -1,3 +1,4 @@
 # My-CV
-我的简历
-在线：http://seainhand.github.io/My-CV
+围住这只愚蠢的猫
+
+在线：http://seainhand.github.io/MyCat
