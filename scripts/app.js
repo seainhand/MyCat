@@ -11,6 +11,8 @@ var circleArr = [[],[],[],[],[],[],[],[],[]];
 var currentCat;
 var MOVE_NONE = -1,MOVE_LEFT = 0,MOVE_UP_LEFT = 1,MOVE_UP_RIGHT = 2,MOVE_RIGHT = 3,MOVE_DOWN_RIGHT = 4,MOVE_DOWN_LEFT = 5;
 var catImg = document.getElementById('catImg');
+var step = 0;
+var te = document.getElementById('te');
 
 function getMoveDir(cat){
 
@@ -147,6 +149,7 @@ function getMoveDir(cat){
     }
 }
 function circleClick(e){
+	step++;
 	if (e.target.getCircleType()==Circle.TYPE_UNSELECTED) {
 		e.target.setCircleType(Circle.TYPE_SELECTED);
 	}else{
@@ -154,7 +157,11 @@ function circleClick(e){
 	}
 	if (currentCat.indexX == 0||currentCat.indexX == 8||
 		currentCat.indexY == 0||currentCat.indexY == 8) {
-		alert('神经猫逃跑了');
+		te.innerText =    '神经猫逃跑了！！'; 
+		resetGame();
+			setTimeout(function(){
+				te.innerText =    ''; 
+			}, 3000);
 		return;
 	};
 
@@ -204,7 +211,11 @@ function circleClick(e){
 			catImg.style.left = currentCat.indexY%2?(parseInt(currentCat.indexX)+1)*55-30+c_wid+"px" : (parseInt(currentCat.indexX)+1)*55-55+c_wid+"px";
 			break;
 		default :
-			alert('神经猫被你围住了！！'); 
+			te.innerText =    '神经猫被你围住了！！ 一共用了 '+ step +' 步'; 
+			resetGame();
+			setTimeout(function(){
+				te.innerText =    ''; 
+			}, 3000);
 	}	
 }
 
@@ -229,3 +240,14 @@ function addCircles(){
 	}
 }
 addCircles();
+
+function resetGame(){
+	addCircles();
+	catImg.style.left = '320px';
+	catImg.style.top = '245px';
+}
+
+document.getElementById('resetBtn').onclick = function(){
+	resetGame();
+	te.innerText =    ''; 
+};

@@ -100,3 +100,25 @@ canvas {
   top: 245px;
   left: 320px;
 }
+
+/* line 30, ../sass/style.scss */
+.resetBtn {
+  position: absolute;
+  top: 30px;
+  left: 700px;
+  width: 80px;
+  height: 50px;
+  background: #1abc9c;
+  border: 0;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1.3em;
+}
+
+/* line 42, ../sass/style.scss */
+.te {
+  position: absolute;
+  top: 130px;
+  left: 700px;
+  font-size: 1.3em;
+}
